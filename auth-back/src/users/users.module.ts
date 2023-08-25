@@ -4,6 +4,7 @@ import { UsersService } from './users.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { User } from './user.entity';
+import { UploadService } from './upload.service';
 
 @Module({
   imports: [
@@ -11,10 +12,10 @@ import { User } from './user.entity';
     JwtModule.register({
       global: true,
       secret: "asdkljaskdjlaskljd",
-      signOptions: { expiresIn: '180s' },
+      signOptions: { expiresIn: '3600s' },
     })
   ],
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, UploadService],
 })
 export class UsersModule {}

@@ -14,6 +14,9 @@ export class User {
   @Column()
   bio: string;
 
+  @Column()
+  avatar: string;
+
   @Column({unique: true})
   email: string;
 

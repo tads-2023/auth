@@ -27,12 +27,13 @@ export class UsersService {
     return new SessionDto(await this.jwtService.signAsync(payload));
   }
 
-  signUp(userDto: UserDto): Promise<User> {
+  signUp(userDto: UserDto, filePath: string): Promise<User> {
     let user = new User();
     user.name = userDto.name;
     user.email = userDto.email;
     user.phone = userDto.phone;
     user.bio = userDto.bio;
+    user.avatar = filePath;
     user.password = userDto.password;
 
     return this.usersRepository.save(user);
